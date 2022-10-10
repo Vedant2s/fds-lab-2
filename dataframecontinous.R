@@ -1,0 +1,6 @@
+Name<-c("vedant","rohan","tarzan","crow","nathan","nandy","friday","ron","don","shawn")
+Physics<-c(12,23,34,45,56,78,89,12,12,12)
+Maths<-c(23,43,43,12,55,66,77,88,99,23)
+Mobile<-c(100,541,213,589,451,215,654,125,789,523)
+ILL<-data.frame(Name,Physics,Maths,Mobile)
+print(ILL)
