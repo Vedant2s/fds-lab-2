@@ -3,6 +3,9 @@ Name<-c("amir","malik")
 Age<-c(21,22)
 ITB<-data.frame(Name,Age)
 print(ITB)
+#type 2 
+data(Titanic)
+help(Titanic)
 #type 3 for.csv file
 install.packages("readr")
 library(readr)
