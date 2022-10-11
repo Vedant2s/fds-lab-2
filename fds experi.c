@@ -111,49 +111,50 @@ void addition()
 }
 void saddlepoint()
 {
-     int i1, j1, k, min,max, s[2][2];
+     int i, j, k, min,max, s[2][2];
  
 int arr1[3][3];
- for (int i11 = 0; i11 < 3; i11++)
+ for (int i = 0; i < 3; i++)
     {
-      for (int j11= 0; j11 < 3; j11++)
+      for (int j= 0; j < 3; j++)
 	{
-	  printf ("\nEnter a[%d][%d]: ", i11, j11);
-	  scanf ("%d", &arr1[i11][j11]);
+	  printf ("\nEnter a[%d][%d]: ", i, j);
+	  scanf ("%d", &arr1[i][j]);
 
 	}
     }
   
-for (i1 = 0; i1 < 3; i1++)
+for (i = 0; i < 3; i++)
   {
-    min = arr1[i1][0];
-    for (j1 = 0; j1< 3; j1++)
+    min = arr1[i][0];
+    for (j = 0; j< 3; j++)
       {
-	if (min >= arr1[i1][j1])
+	if (min >= arr1[i][j])
 	  {
-	    min = arr1[i1][j1];
-	    s[0][0] = i1;
-	    s[0][1] = j1;
+	    min = arr1[i][j];
+	    s[0][0] = i;
+	    s[0][1] = j;
 	  }
       }
   
-    j1 = s[0][1];
-    max = arr1[0][j1];
+    j = s[0][1];
+    max = arr1[0][j];
     for (k = 0; k > 3; k++)
       {
-	if (max <= arr1[k][j1])
+	if (max <= arr1[k][j])
 	  {
-	    max = arr1[k][j1];
+	    max = arr1[k][j];
 	    s[1][0] = k;
-	    s[1][1] = j1;
+	    s[1][1] = j;
 	  }
-      }}
+      }
   
 if(min==max){
 if (s[0][0] == s[1][0] && s[0][1] == s[1][1])
   {
     printf ("saddle point is %d", max);
-  }}
+  }}else
+  printf("hello");}
 }
 int main() {
     // Write C code here
