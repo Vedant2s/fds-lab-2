@@ -72,59 +72,26 @@ void main()
 {
     nota();
     intersection();
-   int a[10],b[10],i,c[10],j,k=0,n1,n2;
-
-   // taking input set A
-
-   printf("Enter number of  element of set A\n");
-   scanf("%d",&n1);
-   printf("Enter the element of set A \n");
-   for(i=0;i<n1;i++)
-      scanf("%d",&a[i]);
-
-    // taking input set B
-
-   printf("Enter number of element of set B\n");
-   scanf("%d",&n2);
-   printf("Enter the element of set B \n");
-   for(i=0;i<n2;i++)
-     scanf("%d",&b[i]);
-
-   // logic for calculate union
-
-   // copy the element of set A in set C
-   for(i=0;i<n1;i++)
-   {
-       // repeted element is not allowed so we check is any value repeted
-      for(j=0;j<k;j++)
-      {
-         if(c[j]==a[i]) 
-            break;
-       }
-       if(j==k) //if not repesated then store value in set c 
-       {
-          c[k]=a[i];
-          k++;
-       }
+  int arr1[] = { 1, 2, 4, 5, 6 };
+    int arr2[] = { 2, 3, 5, 7 };
+    int m = sizeof(arr1) / sizeof(arr1[0]);
+    int n = sizeof(arr2) / sizeof(arr2[0]);
+   int i = 0, j = 0;
+    while (i < m && j < n) {
+        if (arr1[i] < arr2[j])
+            printf(" %d ", arr1[i++]);
+        else if (arr2[j] < arr1[i])
+            printf(" %d ", arr2[j++]);
+        else {
+            printf(" %d ", arr2[j++]);
+            i++;
+        }
     }
-    // copy element of set B in set C
-   for(i=0;i<n2;i++)
-   {
-       // check for repeted element
-      for(j=0;j<k;j++)
-      {
-         if(c[j]==b[i])
-           break;
-      }
-     if(j==k) // if element is not repeted then store in set C
-     {
-       c[k]=b[i];
-       k++;
-     }
-   }
-
-   // printing of union of set A and set B
-   printf("Union of set A and B is:-\n");
-    for(i=0;i<k;i++)
-      printf("%d ",c[i]);
+ 
+    /* Print remaining elements of the larger array */
+    while (i < m)
+        printf(" %d ", arr1[i++]);
+    while (j < n)
+        printf(" %d ", arr2[j++]);
+    getchar();
 }
