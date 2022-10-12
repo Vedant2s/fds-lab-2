@@ -1,11 +1,12 @@
 // Online C compiler to run C program online
 #include <stdio.h>
+int r,c;
 void multiply()
 {
     int a[10][10],b[10][10],mul[10][10],r,c,i,j,k,*lop,*sof;  
     lop=&a[0][0];
     sof=&b[0][0];
-    system("cls");  
+ 
     printf("enter the number of row=");    
     scanf("%d",&r);    
     printf("enter the number of column=");    
@@ -111,56 +112,83 @@ void addition()
 }
 void saddlepoint()
 {
-     int i, j, k, min,max, s[2][2];
- 
-int arr1[3][3];
- for (int i = 0; i < 3; i++)
-    {
-      for (int j= 0; j < 3; j++)
-	{
-	  printf ("\nEnter a[%d][%d]: ", i, j);
-	  scanf ("%d", &arr1[i][j]);
-
-	}
-    }
-  
-for (i = 0; i < 3; i++)
-  {
-    min = arr1[i][0];
-    for (j = 0; j< 3; j++)
-      {
-	if (min >= arr1[i][j])
-	  {
-	    min = arr1[i][j];
-	    s[0][0] = i;
-	    s[0][1] = j;
-	  }
-      }
-  
-    j = s[0][1];
-    max = arr1[0][j];
-    for (k = 0; k > 3; k++)
-      {
-	if (max <= arr1[k][j])
-	  {
-	    max = arr1[k][j];
-	    s[1][0] = k;
-	    s[1][1] = j;
-	  }
-      }
-  
-if(min==max){
-if (s[0][0] == s[1][0] && s[0][1] == s[1][1])
-  {
-    printf ("saddle point is %d", max);
-  }}else
-  printf("hello");}
+    int a[10][10], i, j, num;
+int sm, p, large, f = 1;
+printf("Enter Size of Matrix :\n");
+scanf("%d", & num);
+printf("Enter Matrix Elements :\n");
+for (i = 0; i < num; i++)
+{
+for (j = 0; j < num; j++)
+{
+scanf("%d", & a[i][j]);
 }
+}
+printf(" The Entered Matrix is :\n");
+for (i = 0; i < num; i++)
+{
+printf("\n");
+for (j = 0; j < num; j++)
+{
+printf("%d ", a[i][j]);
+}
+}
+//Compute Saddle Point
+for (i = 0; i < num; i++)
+{
+p = 0;
+sm = a[i][0];
+for (j = 0; j < num; j++)
+{
+if (sm > a[i][j])
+{
+sm =a[i][j];
+p = j;
+}
+}
+large = 0;
+for ( j = 0; j < num; j++)
+{
+if (large < a[j][p])
+{
+large = a[j][p];
+}
+}
+if ( sm == large)
+{
+printf("\n The Saddle Point for the given Matrix is :%d\n", sm);
+f = 0;
+}
+}
+if (f > 0)
+printf( "\nNo Saddle Point ");
+}   
+  
+
 int main() {
     // Write C code here
-    printf("Hello world");
-    /*addition();
-    multiply();*/
-    saddlepoint();
+   int choice;
+   do
+    {
+        int choice;
+         printf("enter your choice:\n");
+    printf("1.addition\n2.multiply\n3.saddle point\n");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+    addition();
+    break;
+    case 2:
+     multiply();
+     break;
+     case 3:
+     saddlepoint();
+     break;
+    }
+    }while(choice!=0);
+    
+    
+
     return 0;
 }
