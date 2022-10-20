@@ -1,0 +1,21 @@
+#impoting bodyperformance
+library(readr)
+bodyPerformance <- read_csv("C:/Users/admin/Downloads/bodyPerformance.csv")
+View(bodyPerformance)
+library(readr)
+marketing_campaign_1_ <- read_delim("C:/Users/admin/Downloads/marketing_campaign (1).csv", 
+                                    delim = "\t", escape_double = FALSE, 
+                                    trim_ws = TRUE)
+View(marketing_campaign_1_)
+bodyPerformance <-data.frame(bp)
+str(bp)
+View(bodyPerformance)
+MC1 = select(marketing_campaign_1_,ID,Year_Birth)
+View(MC1)
+MC2 = select(bodyPerformance,age:gender)
+View(MC2)
+MC3=select(marketing_campaign_1_,-AcceptedCmp3:-AcceptedCmp2)
+View(MC3)
+contains(bodyPerformance,M, ignore.case = T, logic = “or”, switch = F)
+w=filter(bodyPerformance,gender=="M")
+View(w)
