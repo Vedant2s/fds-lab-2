@@ -1,0 +1,5 @@
+View(mtcars)
+ggplot(mtcars,aes(x=cyl))+geom_bar(width=NULL)+geom_dotplot(binwidth = 0.09)
+ggplot(mtcars,aes(x=qsec,stat="count"))+geom_boxplot()+coord_flip()+theme(axis.text.y=element_blank(),axis.ticks.y=element_blank())
+ggplot(mtcars,aes(x=cyl))+geom_histogram(binwidth = 0.5)
+ggplot(mtcars,aes(x=cyl))+geom_density()
