@@ -1,4 +1,4 @@
-// Online C compiler to run C program online
+
 #include <stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -54,6 +54,16 @@ void deleteS(struct abc*head)
 	free(temp);	
 	
 }
+void deleteP(struct abc*head)
+{       
+	struct abc*temp;
+	temp=head;
+	head=head->next;
+	head->prv=NULL;
+	free(temp);
+	
+	
+}
 int main() {
 	    // Write C code here
 	    struct abc *head;
@@ -71,7 +81,8 @@ int main() {
 	         printf("1.insert a member\n");
 	           printf("2.display all members\n");
                    //printf("3.count of no. of members");
-                   printf("3.delete secretary"); 
+                   printf("3.delete secretary\n"); 
+		printf("4.delete president\n"); 
 	        printf("0.exit\n");
 	        scanf("%d",&choice);
 	        switch(choice)
@@ -85,6 +96,8 @@ int main() {
 	            break;
                     case 3:
 	            deleteS(head);
+		    case 4:
+	            deleteP(head);
 	            break;
 	            case 0:
 	            printf("you have successfully exited\n");
