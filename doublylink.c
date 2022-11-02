@@ -1,3 +1,4 @@
+// Online C compiler to run C program online
 #include <stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -11,6 +12,7 @@ void insertS(struct abc*h)
 {
     struct abc* new;
     new=(struct abc*)malloc(sizeof(struct abc));
+	printf("enter the prn and name of secretary\n");
     scanf("%d %s",&new->pr,new->name);
     new->prv=h;
     h->next=new;
@@ -57,6 +59,7 @@ int main() {
 	    struct abc *head;
 	    head=(struct abc*)malloc(sizeof(struct abc));
 	    printf("enter the data of president\n");
+	printf("\nEnter the prn and name\n");
 	    scanf("%d %s",&head->pr,head->name);
 	    head->prv=NULL;
 	    head->next=NULL;
@@ -64,7 +67,7 @@ int main() {
 	    int choice,g;
 	    do
 	    {
-	        printf("Enter your choice\n");
+	        printf("\nEnter your choice\n");
 	         printf("1.insert a member\n");
 	           printf("2.display all members\n");
                    //printf("3.count of no. of members");
