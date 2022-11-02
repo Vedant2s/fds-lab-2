@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -12,7 +11,7 @@ void insertS(struct abc*h)
 {
     struct abc* new;
     new=(struct abc*)malloc(sizeof(struct abc));
-	printf("enter the prn and name of secretary\n");
+printf("enter the prn and name of secretary\n");
     scanf("%d %s",&new->pr,new->name);
     new->prv=h;
     h->next=new;
@@ -21,7 +20,7 @@ void insertS(struct abc*h)
 void insertM(struct abc*head)
 {
     struct abc* new;
-     
+
     new=(struct abc*)malloc(sizeof(struct abc));
     printf("Enter the prn and name");
     scanf("%d",&new->pr);
@@ -39,75 +38,75 @@ void display1(struct abc*head)
     {
         printf("\nName= %s prn no.= %d \n",temp->name,temp->pr);
         temp=temp->next;
-        
+
     }
 }
 void deleteS(struct abc*head)
 {
-	struct abc*temp;
-	temp=head;
-	while(temp->next!=NULL)
-	{
-		temp=temp->next;	
-	}
-	temp->prv->next=NULL;
-	free(temp);	
-	
+struct abc*temp;
+temp=head;
+while(temp->next!=NULL)
+{
+temp=temp->next;
 }
-void deleteP(struct abc*head)
-{       
-	struct abc*temp;
-	temp=head;
-	head=head->next;
-	head->prv=NULL;
-	free(temp);
-	
-	
+temp->prv->next=NULL;
+free(temp);
+
 }
+struct abc *deleteP(struct abc*head)
+{
+    struct abc*temp;
+    temp=head;
+    if(head->next!=NULL)
+    head->next->prv=NULL;
+    head=head->next;
+    free(temp);
+    return(head);
+}
+
 int main() {
-	    // Write C code here
-	    struct abc *head;
-	    head=(struct abc*)malloc(sizeof(struct abc));
-	    printf("enter the data of president\n");
-	printf("\nEnter the prn and name\n");
-	    scanf("%d %s",&head->pr,head->name);
-	    head->prv=NULL;
-	    head->next=NULL;
-	    insertS(head);
-	    int choice,g;
-	    do
-	    {
-	        printf("\nEnter your choice\n");
-	         printf("1.insert a member\n");
-	           printf("2.display all members\n");
+   // Write C code here
+   struct abc *head;
+   head=(struct abc*)malloc(sizeof(struct abc));
+   printf("enter the data of president\n");
+printf("\nEnter the prn and name\n");
+   scanf("%d %s",&head->pr,head->name);
+   head->prv=NULL;
+   head->next=NULL;
+   insertS(head);
+   int choice,g;
+   do
+   {
+       printf("\nEnter your choice\n");
+        printf("1.insert a member\n");
+          printf("2.display all members\n");
                    //printf("3.count of no. of members");
-                   printf("3.delete secretary\n"); 
-		printf("4.delete president\n"); 
-	        printf("0.exit\n");
-	        scanf("%d",&choice);
-	        switch(choice)
-	        {
-	           
-	            case 1:
-	            insertM(head);
-	            break;
-	            case 2:
-	            display1(head);
-	            break;
+                   printf("3.delete secretary");
+                   printf("4.delete president");
+       printf("0.exit\n");
+       scanf("%d",&choice);
+       switch(choice)
+       {
+
+           case 1:
+           insertM(head);
+           break;
+           case 2:
+           display1(head);
+           break;
                     case 3:
-	            deleteS(head);
-		    case 4:
-	            deleteP(head);
-	            break;
-	            case 0:
-	            printf("you have successfully exited\n");
-	            break;
-	        }
-	    }while(choice!=0);
-	   
-       // insertM(head);
-    
-    //printf("Hello world");
+           deleteS(head);
+           break;
+           case 4:
+           head=deleteP(head);
+           break;
+           case 0:
+           printf("you have successfully exited\n");
+           break;
+       }
+   }while(choice!=0);
+
+
 
     return 0;
 }
