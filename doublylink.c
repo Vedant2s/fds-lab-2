@@ -63,7 +63,18 @@ struct abc *deleteP(struct abc*head)
     free(temp);
     return(head);
 }
-
+int count(struct abc*head)
+{
+    struct abc*temp;
+    temp=head;
+    int g=0;/*if g= then take temp->next!=NULL*/
+    while(temp!=NULL)
+    {
+        temp=temp->next;
+        g++;
+    }
+    return(g);
+}
 int main() {
    // Write C code here
    struct abc *head;
@@ -83,6 +94,7 @@ printf("\nEnter the prn and name\n");
                    //printf("3.count of no. of members");
                    printf("3.delete secretary");
                    printf("4.delete president");
+                   printf("5.no. of members");
        printf("0.exit\n");
        scanf("%d",&choice);
        switch(choice)
@@ -99,6 +111,10 @@ printf("\nEnter the prn and name\n");
            break;
            case 4:
            head=deleteP(head);
+           break;
+           case 5:
+           g=count(head);
+           printf("%d",g);
            break;
            case 0:
            printf("you have successfully exited\n");
