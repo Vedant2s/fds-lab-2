@@ -18,11 +18,9 @@ void insertS (struct abc *h)
   h->next = new;
   new->next = NULL;
 }
-
 void insertM (struct abc *head)
 {
   struct abc *new;
-
   new = (struct abc *) malloc (sizeof (struct abc));
   printf ("Enter the prn and name");
   scanf ("%d", &new->pr);
@@ -32,7 +30,6 @@ void insertM (struct abc *head)
   new->next->prv = new;
   head->next = new;
 }
-
 void display1 (struct abc *head)
 {
   struct abc *temp;
@@ -41,10 +38,8 @@ void display1 (struct abc *head)
     {
       printf ("\nName= %s prn no.= %d \n", temp->name, temp->pr);
       temp = temp->next;
-
     }
 }
-
 void deleteS (struct abc *head)
 {
   struct abc *temp;
@@ -55,11 +50,7 @@ void deleteS (struct abc *head)
     }
   if(temp->prv!=NULL)temp->prv->next = NULL;
   free (temp);
-  
-  
-
 }
-
 struct abc * deleteP (struct abc *head)
 {
   struct abc *temp;
@@ -70,7 +61,6 @@ struct abc * deleteP (struct abc *head)
   free (temp);
   return (head);
 }
-
 int count (struct abc *head)
 {
   struct abc *temp;
@@ -83,7 +73,6 @@ int count (struct abc *head)
     }
   return (g);
 }
-
 void rev(struct abc* head,struct abc* temp)
 {
     if(temp!=NULL)
@@ -120,7 +109,6 @@ int main ()
       scanf ("%d", &choice);
       switch (choice)
 	{
-
 	case 1:
 	  insertM (head);
 	  break;
@@ -150,8 +138,5 @@ int main ()
 	}
     }
   while (choice != 0);
-
-
-
   return 0;
 }
