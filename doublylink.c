@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -52,8 +53,10 @@ void deleteS (struct abc *head)
     {
       temp = temp->next;
     }
-  temp->prv->next = NULL;
+  if(temp->prv!=NULL)temp->prv->next = NULL;
   free (temp);
+  
+  
 
 }
 
@@ -62,7 +65,7 @@ struct abc * deleteP (struct abc *head)
   struct abc *temp;
   temp = head;
   if (head->next != NULL)
-    head->next->prv = NULL;
+  head->next->prv = NULL;
   head = head->next;
   free (temp);
   return (head);
@@ -81,10 +84,20 @@ int count (struct abc *head)
   return (g);
 }
 
+void rev(struct abc* head,struct abc* temp)
+{
+    if(temp!=NULL)
+    {
+        printf("name:%s prn no.:%d\n",temp->name,temp->pr);
+        temp=temp->prv;
+        rev(head,temp);
+    }
+}
 int main ()
 {
   // Write C code here
   struct abc *head;
+    struct abc*temp;
   head = (struct abc *) malloc (sizeof (struct abc));
   printf ("enter the data of president\n");
   printf ("\nEnter the prn and name\n");
@@ -99,9 +112,10 @@ int main ()
       printf ("1.insert a member\n");
       printf ("2.display all members\n");
       //printf("3.count of no. of members");
-      printf ("3.delete secretary");
-      printf ("4.delete president");
-      printf ("5.no. of members");
+      printf ("3.delete secretary\n");
+      printf ("4.delete president\n");
+      printf ("5.no. of members\n");
+      printf ("6.display reversed list\n");
       printf ("0.exit\n");
       scanf ("%d", &choice);
       switch (choice)
@@ -122,6 +136,13 @@ int main ()
 	case 5:
 	  g = count (head);
 	  printf ("%d", g);
+	  break;
+	  case 6:
+	  temp = head;
+    while (temp->next != NULL) {
+        temp= temp->next;
+    }
+    rev(head,temp);
 	  break;
 	case 0:
 	  printf ("you have successfully exited\n");
