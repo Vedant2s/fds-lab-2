@@ -1,6 +1,43 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 int r,c;
+void transpose()
+{
+    int a[10][10], transpose[10][10], r, c;
+  printf("Enter rows and columns: ");
+  scanf("%d %d", &r, &c);
+
+  // asssigning elements to the matrix
+  printf("\nEnter matrix elements:\n");
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    printf("Enter element a%d%d: ", i + 1, j + 1);
+    scanf("%d", &a[i][j]);
+  }
+
+  // printing the matrix a[][]
+  printf("\nEntered matrix: \n");
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    printf("%d  ", a[i][j]);
+    if (j == c - 1)
+    printf("\n");
+  }
+
+  // computing the transpose
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    transpose[j][i] = a[i][j];
+  }
+
+  // printing the transpose
+  printf("\nTranspose of the matrix:\n");
+  for (int i = 0; i < c; ++i)
+  for (int j = 0; j < r; ++j) {
+    printf("%d  ", transpose[i][j]);
+    if (j == r - 1)
+    printf("\n");
+  }
+}
 void multiply()
 {
     int a[10][10],b[10][10],mul[10][10],r,c,i,j,k,*lop,*sof;  
@@ -60,7 +97,7 @@ void addition()
       for (j = 0; j < 3; j++)
 	{
 	  printf ("\nEnter a[%d][%d]: ", i, j);
-	  scanf ("%d", &arr[i][j]);
+	  scanf ("%d", (p + ((i * 3) + j)));
 
 	}
     }
@@ -69,7 +106,7 @@ void addition()
       for (j = 0; j < 3; j++)
 	{
 
-	  printf ("%d\t", *(p + ((i * 3) + j)));
+	  printf ("%d\t",*(p + ((i * 3) + j)));
 	}
       printf ("\n");
     }
@@ -78,7 +115,7 @@ void addition()
       for (j = 0; j < 3; j++)
 	{
 	  printf ("\nEnter b[%d][%d]: ", i, j);
-	  scanf ("%d", &b[i][j]);
+	  scanf ("%d", (q + ((i * 3) + j)));
 
 	}
     }
@@ -112,7 +149,9 @@ void addition()
 }
 void saddlepoint()
 {
-    int a[10][10], i, j, num;
+    int a[10][10], i, j, num,*p1;
+    
+  p1 = &a[0][0];
 int sm, p, large, f = 1;
 printf("Enter Size of Matrix :\n");
 scanf("%d", & num);
@@ -121,7 +160,8 @@ for (i = 0; i < num; i++)
 {
 for (j = 0; j < num; j++)
 {
-scanf("%d", & a[i][j]);
+    printf("enter the a[%d][%d]\t",i,j);
+scanf("%d", (p1 + ((i * 3) + j)));
 }
 }
 printf(" The Entered Matrix is :\n");
@@ -130,28 +170,28 @@ for (i = 0; i < num; i++)
 printf("\n");
 for (j = 0; j < num; j++)
 {
-printf("%d ", a[i][j]);
+printf("%d ", *(p1 + ((i * 3) + j)));
 }
 }
 //Compute Saddle Point
 for (i = 0; i < num; i++)
 {
 p = 0;
-sm = a[i][0];
+sm = *(p1 + ((i * 3) + 0));
 for (j = 0; j < num; j++)
 {
-if (sm > a[i][j])
+if (sm > *(p1 + ((i * 3) + j)))
 {
-sm =a[i][j];
+sm = *(p1 + ((i * 3) + j));
 p = j;
 }
 }
 large = 0;
 for ( j = 0; j < num; j++)
 {
-if (large < a[j][p])
+if (large < *(p1 + ((j * 3) + p)))
 {
-large = a[j][p];
+large = *(p1 + ((j * 3) + p));
 }
 }
 if ( sm == large)
@@ -161,7 +201,7 @@ f = 0;
 }
 }
 if (f > 0)
-printf( "\nNo Saddle Point ");
+printf( "\nNo Saddle Point\n ");
 }   
   
 
@@ -172,7 +212,7 @@ int main() {
     {
         int choice;
          printf("enter your choice:\n");
-    printf("1.addition\n2.multiply\n3.saddle point\n");
+    printf("1.addition\n2.multiply\n3.saddle point\n4.transpose of matrix\n");
     scanf("%d",&choice);
     switch(choice)
     {
@@ -184,6 +224,9 @@ int main() {
      break;
      case 3:
      saddlepoint();
+     break;
+     case 4:
+     transpose();
      break;
     }
     }while(choice!=0);
