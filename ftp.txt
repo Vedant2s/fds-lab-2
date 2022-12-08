@@ -1,0 +1,79 @@
+Microsoft Windows [Version 10.0.19044.1706]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Admin>ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : PCET.LOCAL
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . : PCET.LOCAL
+   Link-local IPv6 Address . . . . . : fe80::a0f6:ca0d:4647:1bd7%5
+   IPv4 Address. . . . . . . . . . . : 10.32.1.37
+   Subnet Mask . . . . . . . . . . . : 255.255.254.0
+   Default Gateway . . . . . . . . . : 10.32.0.1
+
+C:\Users\Admin>ftp 10.32.1.37
+Connected to 10.32.1.37.
+220 Microsoft FTP Service
+200 OPTS UTF8 command successful - UTF8 encoding now ON.
+User (10.32.1.37:(none)): vedant
+331 Password required
+Password:
+230 User logged in.
+ftp> dir
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+12-07-22  03:50PM                12095 nature.jpg
+12-07-22  03:51PM              2582528 one.ppt
+12-07-22  03:51PM                23109 three.xlsx
+11-02-22  02:48PM               101247 xyz.png
+226 Transfer complete.
+ftp: 201 bytes received in 0.00Seconds 67.00Kbytes/sec.
+ftp> delete xyz.png
+250 DELE command successful.
+ftp> dir
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+12-07-22  03:50PM                12095 nature.jpg
+12-07-22  03:51PM              2582528 one.ppt
+12-07-22  03:51PM                23109 three.xlsx
+226 Transfer complete.
+ftp: 153 bytes received in 0.00Seconds 76.50Kbytes/sec.
+ftp> send xyz.png
+xyz.png: File not found
+ftp> get three.xlsx
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+226 Transfer complete.
+ftp: 23109 bytes received in 0.00Seconds 23109000.00Kbytes/sec.
+ftp> recv three.xlsx
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+226 Transfer complete.
+ftp: 23109 bytes received in 0.00Seconds 23109000.00Kbytes/sec.
+ftp> send three.xlsx
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+226 Transfer complete.
+ftp: 23109 bytes sent in 0.00Seconds 23109000.00Kbytes/sec.
+ftp> quit
+221 Goodbye.
+
+C:\Users\Admin>
